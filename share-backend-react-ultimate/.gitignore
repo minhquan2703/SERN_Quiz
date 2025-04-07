@@ -1,0 +1,7 @@
+node_modules
+node_modules/*
+build/*
+quiz/build/*
+build
+share
+share-backend-react-ultimate

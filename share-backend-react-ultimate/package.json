@@ -1,0 +1,33 @@
+{
+  "name": "backend-quiz-hoidanit",
+  "version": "1.0.0",
+  "description": "https://hoidanit.com.vn/",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
+  },
+  "author": "Hỏi Dân IT vs Eric",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "0.27.2",
+    "bcryptjs": "2.4.3",
+    "bluebird": "3.7.2",
+    "body-parser": "1.19.1",
+    "dotenv": "10.0.0",
+    "ejs": "3.1.8",
+    "express": "4.17.2",
+    "express-fileupload": "1.4.0",
+    "http-status": "1.7.0",
+    "joi": "17.11.0",
+    "jsonwebtoken": "8.5.1",
+    "lodash": "4.17.21",
+    "moment": "2.29.3",
+    "mysql2": "2.3.3",
+    "sequelize": "6.13.0",
+    "sequelize-cli": "6.3.0",
+    "uuid": "8.3.2",
+    "vinyl-sourcemaps-apply": "0.2.1"
+  }
+}
