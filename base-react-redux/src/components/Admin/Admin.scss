@@ -4,17 +4,17 @@
         .pro-sidebar{
             height: 100vh !important;
         }
-        .sidebar-button{
-            border-radius: 20px;
-            height: 35px;
-            padding: 0 15px;
-            font-size: 14px;
-            background-color: #2b2b2b;
-            color:#adadad;
-            border: 1px solid #2b2b2b;
-        &:hover{
-            background-color: #444444;
+    }
+    .admin-content{
+        width: 100%;
+        .admin-header{
+            height:40px;
+            border: 1px solid green;
+
         }
+        .admin-main{
+            border: 1px solid red;
+            
         }
     }
 }
