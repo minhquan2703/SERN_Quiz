@@ -9,7 +9,10 @@ import {
     SidebarContent,
   } from 'react-pro-sidebar';
   import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart } from 'react-icons/fa';
+  import { DiReact } from 'react-icons/di';
+  import { MdDashboard } from 'react-icons/md';
   import sidebarBg from '../../assets/bg2.jpg';
+  import './SideBar.scss'
 
 const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
     return(
@@ -33,52 +36,51 @@ const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
               whiteSpace: 'nowrap',
             }}
           >
-            Minh Quan - Admin
+            <DiReact size={'3em'} color={'#00bfff'} style={{marginRight: "5px"}}/>
+            <span>Pham Minh Quan</span>
           </div>
         </SidebarHeader>
   
         <SidebarContent>
           <Menu iconShape="circle">
             <MenuItem
-              icon={<FaTachometerAlt />}
-              suffix={<span className="badge red">new</span>}
+              icon={<MdDashboard />}
+              //suffix={<span className="badge red">Main</span>}
             >
-                dashboard
+                Dashboard
             </MenuItem>
-            <MenuItem icon={<FaGem />}>components</MenuItem>
           </Menu>
           <Menu iconShape="circle">
             <SubMenu
-              suffix={<span className="badge yellow">3</span>}
-              icon={<FaRegLaughWink />}
+              icon={<FaGem />}
+              title="Features"
             >
-              <MenuItem>1</MenuItem>
-              <MenuItem>2</MenuItem>
-              <MenuItem>3</MenuItem>
+              <MenuItem>Manage Users</MenuItem>
+              <MenuItem>Manage Quizs</MenuItem>
+              <MenuItem>Manage Questions</MenuItem>
             </SubMenu>
           </Menu>
         </SidebarContent>
   
         <SidebarFooter style={{ textAlign: 'center' }}>
-          <div
-            className="sidebar-btn-wrapper"
-            style={{
-              padding: '20px 24px',
-            }}
-          >
-            <a
-              href="https://github.com/azouaoui-med/react-pro-sidebar"
-              target="_blank"
-              className="sidebar-btn"
-              rel="noopener noreferrer"
-            >
-              <FaGithub />
-              <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-                viewSource
-              </span>
-            </a>
-          </div>
-        </SidebarFooter>
+                    <div
+                        className="sidebar-btn-wrapper"
+                        style={{
+                            padding: '20px 24px',
+                        }}
+                    >
+                        <a
+                            href="https://github.com/minhquan2703"
+                            target="_blank"
+                            className="sidebar-btn"
+                            rel="noopener noreferrer"
+                        >
+                            <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
+                                &#169; My github
+                            </span>
+                        </a>
+                    </div>
+                </SidebarFooter>
       </ProSidebar>
 
     )
