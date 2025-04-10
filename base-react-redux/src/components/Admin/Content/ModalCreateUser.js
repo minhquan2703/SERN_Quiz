@@ -2,9 +2,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FcPlus } from 'react-icons/fc';
-import axios from 'axios'
 import { toast } from 'react-toastify';
-
+import { postCreateNewUser } from '../../../services/apiService';
 
 const ModalCreateUser = (props) => {
 	const { show, setShow } = props
@@ -23,7 +22,7 @@ const ModalCreateUser = (props) => {
 	const [password, setPassword] = useState("")
 	const [username, setUsername] = useState("")
 	const [image, setImage] = useState("")
-	const [role, setRole] = useState("")
+	const [role, setRole] = useState("USER")
 	const [previewImage, setPreviewImage] = useState("")	
 
 	const handleUploadImage = (event) =>{
@@ -61,14 +60,7 @@ const ModalCreateUser = (props) => {
 			return;
 		}
 		
-		const data = new FormData();
-		data.append('email', email);
-		data.append('password', password);
-		data.append('username', username);
-		data.append('role',role );
-		data.append('userImage', image);
-		
-		let res = await axios.post('http://localhost:8081/api/v1/participant', data)
+		let res = await postCreateNewUser(email, password, username, role, image);
 		console.log('Check res >>>', res.data)
 
 		if(res.data && res.data.EC === 0){
@@ -77,8 +69,9 @@ const ModalCreateUser = (props) => {
 		}
 		if(res.data && res.data.EC !== 0){
 			toast.error(res.data.EM)
+			return;
 		}
-		
+
 	}
 
 
