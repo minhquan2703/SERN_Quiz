@@ -2,9 +2,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FcPlus } from 'react-icons/fc';
-import axios from 'axios'
 import { toast } from 'react-toastify';
-
+import { postCreateNewUser } from '../../../services/apiService';
 
 const ModalCreateUser = (props) => {
 	const { show, setShow } = props
@@ -23,7 +22,7 @@ const ModalCreateUser = (props) => {
 	const [password, setPassword] = useState("")
 	const [username, setUsername] = useState("")
 	const [image, setImage] = useState("")
-	const [role, setRole] = useState("")
+	const [role, setRole] = useState("USER")
 	const [previewImage, setPreviewImage] = useState("")	
 
 	const handleUploadImage = (event) =>{
@@ -50,35 +49,28 @@ const ModalCreateUser = (props) => {
 		// 	userImage: image
 		// }
 		// console.log(data)
-		const isValidEmail = validateEmail(email)
-		if(!isValidEmail){
-			toast.error("Invalid email")
-			return;
-		}
+		// const isValidEmail = validateEmail(email)
+		// if(!isValidEmail){
+		// 	toast.error("Invalid email")
+		// 	return;
+		// }
 
-		if(!password){
-			toast.error("Invalid password")
-			return;
-		}
+		// if(!password){
+		// 	toast.error("Invalid password")
+		// 	return;
+		// }
 		
-		const data = new FormData();
-		data.append('email', email);
-		data.append('password', password);
-		data.append('username', username);
-		data.append('role',role );
-		data.append('userImage', image);
 		
-		let res = await axios.post('http://localhost:8081/api/v1/participant', data)
-		console.log('Check res >>>', res.data)
-
-		if(res.data && res.data.EC === 0){
-			toast.success(res.data.EM)
+		let data = await postCreateNewUser(email, password, username, role, image);
+		console.log("check res >>>", data)
+		if(data && data.EC === 0){
+			toast.success(data.EM)
 			handleClose();
 		}
-		if(res.data && res.data.EC !== 0){
-			toast.error(res.data.EM)
+		if(data && data.EC !== 0){
+			toast.error(data.EM)
 		}
-		
+
 	}
 
 
