@@ -1,6 +1,10 @@
 .manage-user-container{
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     .users-content{
+
         .img-preview{
             border: 1px solid red;
             height: 150px;
