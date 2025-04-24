@@ -4,11 +4,13 @@
     flex-direction: column;
     gap: 10px;
     .users-content{
-
         .img-preview{
             border: 1px solid red;
             height: 150px;
         }
+    }
+    .table-user-container {
+        padding-top: 15px;
     }
 }
 

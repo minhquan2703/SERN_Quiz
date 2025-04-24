@@ -20,6 +20,7 @@ const ManageUser = (props) => {
   const [ dataView, setDataView ] = useState({})
   const [ dataDelete, setDataDelete ] = useState({})
   const [ pageCount, setPageCount ] = useState(0)
+  const [ currentPage, setCurrentPage ] = useState(1)
 
   useEffect(() => {
     // fetchListUsers();
@@ -74,7 +75,7 @@ const ManageUser = (props) => {
             onClick={() => setShowModalCreateUser(true)}
           >
             <FcPlus />
-            Add new users
+            &#160;&#160;Add new users
           </button>
         </div>
         <div className="table-user-container">
@@ -91,12 +92,17 @@ const ManageUser = (props) => {
             listUsers={listUsers}
             fetchListUsersWithPaginate={fetchListUsersWithPaginate}
             pageCount = {pageCount}
+            currentPage = {currentPage} 
+            setCurrentPage = {setCurrentPage}
           />
         </div>
         <ModalCreateUser
           show={showModalCreateUser}
           setShow={setShowModalCreateUser}
           fetchListUsers={fetchListUsers}
+          fetchListUsersWithPaginate={fetchListUsersWithPaginate}
+          currentPage = {currentPage} 
+          setCurrentPage = {setCurrentPage}
         />
           {/* {showModalUpdateUser &&  có thể dùng điều kiện show để thay cho hàm resetUpdateUser và tránh re-render, nhưng cách này sẽ 
           làm modal bị unmount (không tồn tại trong DOM nếu show = false) => gây lỗi/bug khi import từ component khác 
@@ -108,6 +114,9 @@ const ManageUser = (props) => {
           dataUpdate = {dataUpdate}
           fetchListUsers={fetchListUsers}
           resetUpdateData={resetUpdateData}
+          fetchListUsersWithPaginate={fetchListUsersWithPaginate}
+          currentPage = {currentPage} 
+          setCurrentPage = {setCurrentPage}
         />
           <ModalViewUser
           show={showModalViewUser}
@@ -120,7 +129,9 @@ const ManageUser = (props) => {
           setShow={setShowModalDeleteUser}
           dataDelete={dataDelete}
           fetchListUsers={fetchListUsers}
-
+          fetchListUsersWithPaginate={fetchListUsersWithPaginate}
+          currentPage = {currentPage} 
+          setCurrentPage = {setCurrentPage}
           />
 
       </div>
