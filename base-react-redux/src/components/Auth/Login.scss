@@ -16,7 +16,20 @@
             }
         }
     }
-
+    .loader-icon {
+        font-size: 14;
+        margin-bottom: 3px;
+        color: #00d4ff;
+        animation: spin 1s infinite linear;
+        @keyframes spin {
+            from {
+                transform: scale(1) rotate(0deg);
+            }
+            to {
+                transform: scale(1) rotate(360deg);
+            }
+        }
+    }
     .title {
         font-size: 25px;
         padding: 20px 0;
@@ -44,6 +57,12 @@
             background-color: #000;
             border-radius: 5px;
             margin: 15px 0;
+
+            &:disabled {
+                background: #dddddd;
+                color: #afafaf;
+                cursor: no-drop;
+            }
         }
 
         .back {
