@@ -38,7 +38,7 @@ const ModalUpdateUser = (props) => {
 			if(dataUpdate.image){
 				setPreviewImage(`data:image/jpeg;base64,${dataUpdate.image}`)	
 			}
-		}}, [props.dataUpdate])
+		}}, [dataUpdate])
 
 	const handleUploadImage = (event) =>{
 		if(event.target && event.target.value && event.target.files[0]){
