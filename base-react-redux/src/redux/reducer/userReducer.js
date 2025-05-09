@@ -23,7 +23,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
                     role: action?.payload?.DT?.role
                 },
                 isAuthenticated: true
-            };         
+            };
         case FETCH_USER_LOGOUT:
             return {
                 account: {
